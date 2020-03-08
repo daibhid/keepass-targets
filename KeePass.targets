@@ -1,0 +1,10 @@
+<Project>
+    <Target Name="BuildPlgrxFile" DependsOnTargets="Clean">
+        <PropertyGroup>
+            <KeePassExePath Condition=" '$(KeePassExePath)' == '' ">C:\Program Files (x86)\KeePass Password Safe 2\KeePass.exe</KeePassExePath>
+        </PropertyGroup>
+
+        <Exec Command='"$(KeePassExePath)" --plgx-create $(MSBuildProjectDirectory)'/>
+        <Message Importance="High" Text="Built plgrx file from $(MSBuildProjectDirectory)" />
+    </Target>
+</Project>
